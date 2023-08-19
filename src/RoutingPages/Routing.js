@@ -11,6 +11,7 @@ export default function Routing() {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<LoginPage />} />
+                    <Route path='/register' element={<LoginPage />} />
                     <Route path='/home' element={<Index />} />
                 </Routes>
             </BrowserRouter>

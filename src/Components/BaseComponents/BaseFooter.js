@@ -3,12 +3,7 @@ import React from 'react'
 export default function BaseFooter() {
     return (
         <div>
-            <style>
-                @media-width{
-                    
-                }
-            </style>
-            <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top w-100" style={{position:'absolute',bottom:'0px'}}>
+            <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top w-100" style={{position:'absolute',bottom:'0'}}>
                 <p className="ms-3 mb-0 text-body-secondary">© 2023 Company, Inc</p>
 
                 <a href="/" className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
