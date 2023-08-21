@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import './BaseContentLogin.css'
 import { useNavigate } from 'react-router-dom';
-import ApiService from '../../Services/ApiService';
-
+import { FetchUserData   } from '../../Services/ApiService';
 
 export default function BaseContentLogin() {
     const [username, User] = useState('')
@@ -10,17 +9,10 @@ export default function BaseContentLogin() {
     const [col, SetColor] = useState('')
     const [result, SetResult] = useState('');
     const nav = useNavigate();
-    const lv = ApiService.Loginvalidate();
 
     const Validate = () => {
-        lv()
-        if (username === 'hari@gmail.com') {
-            if (passwd === '1234')
-                nav('/home')
-            else {
-                SetColor('text-danger-emphasis')
-                SetResult('Password Not Matched')
-            }
+        if (FetchUserData(username, passwd) === true) {
+            nav('/home')
         }
         else {
             SetColor('text-danger-emphasis')
@@ -29,8 +21,8 @@ export default function BaseContentLogin() {
     }
 
     return (
-        <div style={{height:'160%'}}>
-            <div className="container col-xl-10 col-xxl-8 px-4 py-5 mt-5 bkg-opcatity rounded-5" > 
+        <div style={{ height: '160%' }}>
+            <div className="container col-xl-10 col-xxl-8 px-4 py-5 mt-5 bkg-opcatity rounded-5" >
                 <div className="row align-items-center g-lg-5 py-5">
                     <div className="col-lg-7 text-center text-lg-start">
                         <h1 className="display-4 fw-bold lh-1 text-body-emphasis mb-3">This is an React with .NET Core App</h1>
@@ -49,7 +41,7 @@ export default function BaseContentLogin() {
                             <small className={col} >{result}</small>
                             <hr className="my-2" />
                             <button className="w-100 btn btn-lg btn-primary" onClick={() => Validate()} type="button">Login</button>
-                            
+
                             {/* <small className="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small> */}
                         </form>
                     </div>
