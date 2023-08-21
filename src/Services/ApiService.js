@@ -9,9 +9,9 @@ export async function FetchUserData(username, password) {
     //alert(typeof(username)+' '+typeof(response.data.userName))
     if (response.status === 200) {
       if (username.trim() === response.data.userName && username !== "") {
-        alert('in name validation')
+        //alert('in name validation')
         if (password === response.data.password) {
-          alert('in pass validation')
+          //alert('in pass validation')
           return true;
         }
         else

@@ -11,6 +11,7 @@ export default function BaseContentLogin() {
     const nav = useNavigate();
 
     const Validate = () => {
+        //FetchUserData(username.trim(), passwd.trim()).IsTrue
         if (FetchUserData(username.trim(), passwd.trim())) {
             alert('berfore nav')
             nav('/home')
