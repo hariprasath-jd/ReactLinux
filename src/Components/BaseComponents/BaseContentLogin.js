@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './BaseContentLogin.css'
 import { useNavigate } from 'react-router-dom';
-import { FetchUserData   } from '../../Services/ApiService';
+import { FetchUserData } from '../../Services/ApiService';
 
 export default function BaseContentLogin() {
     const [username, User] = useState('')
@@ -11,7 +11,8 @@ export default function BaseContentLogin() {
     const nav = useNavigate();
 
     const Validate = () => {
-        if (FetchUserData(username, passwd) === true) {
+        if (FetchUserData(username.trim(), passwd.trim())) {
+            alert('berfore nav')
             nav('/home')
         }
         else {
