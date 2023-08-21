@@ -1,0 +1,8 @@
+.bkg-opcatity{
+    --bs-bg-opacity: .6;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}
+.f-opcatity {
+    --bs-bg-opacity: .8;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}

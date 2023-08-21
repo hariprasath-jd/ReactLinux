@@ -1,0 +1,13 @@
+.height{
+    height: 100%;
+}
+
+.bg{
+    background-image: url('../../../Assert/sun-tornado.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bk-blur{
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}

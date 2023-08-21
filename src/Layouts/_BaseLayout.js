@@ -4,7 +4,7 @@ import '../App.css';
 
 export default function _BaseLayout() {
   return (
-    <div>
+    <div style={{backgroundImage:URL('../Assert/')}}>
       <Outlet></Outlet>
     </div>
   )
