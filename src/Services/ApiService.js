@@ -32,14 +32,17 @@ export async function RegisterData(data) {
   try {
     const response = await axios.post(url, data);
     if (response.status === 200) {
+      //alert('200')
       return true;
     }
     if (response.status === 204) {
+      //alert('204')
       return false;
     }
   }
   catch (e) {
     console.error(e);
+    return false;
   }
 
 }

@@ -1,7 +1,10 @@
 import React from 'react'
+import HomeLayout from '../../Layouts/HomeLayout'
 
 export default function Index() {
   return (
-    <div>Index</div>
+    <div>
+      <HomeLayout />
+    </div>
   )
 }

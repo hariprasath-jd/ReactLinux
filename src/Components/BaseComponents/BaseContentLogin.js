@@ -8,12 +8,14 @@ export default function BaseContentLogin() {
     const [passwd, Pass] = useState('')
     const [col, SetColor] = useState('')
     const [result, SetResult] = useState('');
+    let [test] = useState(false)
     const nav = useNavigate();
 
-    const Validate = () => {
-        //FetchUserData(username.trim(), passwd.trim()).IsTrue
-        if (FetchUserData(username.trim(), passwd.trim())) {
-            alert('berfore nav')
+    const Validate = async () => {
+        await FetchUserData(username.trim(), passwd.trim()).then((value) => { test = value});
+        //alert(test + '  in state')
+        if (test) {
+            //alert('berfore nav')
             nav('/home')
         }
         else {
@@ -41,7 +43,6 @@ export default function BaseContentLogin() {
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <small className={col} >{result}</small>
-                            <hr className="my-2" />
                             <button className="w-100 btn btn-lg btn-primary" onClick={() => Validate()} type="button">Login</button>
 
                             {/* <small className="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small> */}

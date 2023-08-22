@@ -9,18 +9,26 @@ export default function BaseContentRegister() {
   const [repasswd, RePass] = useState('')
   const [col, SetColor] = useState('')
   const [result, SetResult] = useState('');
+  let [boolValue] = useState(false);
   const nav = useNavigate();
 
-  const Submit = () => {
+  const Submit = async () => {
+    //Seting Loader Animation
+    SetColor('spinner-border text-success float-start mb-2')
+    SetResult(<span class="visually-hidden">Loading...</span>)
+    
+    //Getting data from the form
     var form = new FormData();
     form.append("email", username);
     form.append("pass", passwd);
 
+    //email id validation
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const isValidEmail = emailPattern.test(username);
     if (isValidEmail) {
       if (passwd === repasswd) {
-        if (RegisterData(form))
+        await RegisterData(form).then((ans) => {boolValue = ans})
+        if (boolValue)
           nav('/');
         else {
           SetColor('text-warning-emphasis');
@@ -57,7 +65,6 @@ export default function BaseContentRegister() {
                 <label for="refloatingPassword">ReType - Password</label>
               </div>
               <small className={col} >{result}</small>
-              <hr className="my-2" />
               <button className="w-100 btn btn-lg btn-success" onClick={() => Submit()} type="button">Register</button>
               <hr className="my-2" />
               <small className="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
