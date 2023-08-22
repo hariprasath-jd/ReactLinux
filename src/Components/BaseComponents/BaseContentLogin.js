@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './BaseContentLogin.css'
+import '../../Styles/LoginPage/BaseContentLogin.css'
 import { useNavigate } from 'react-router-dom';
 import { FetchUserData } from '../../Services/ApiService';
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import './HomeNavBar.css'
+import '../../Styles/HomePage/HomeNavBar.css'
 
 export default function HomeNavBar() {
   return (

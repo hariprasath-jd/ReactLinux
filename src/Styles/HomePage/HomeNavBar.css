@@ -1,0 +1,4 @@
+.bk-blur {
+    --bs-bg-opacity: .6;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
