@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 const link = "https://localhost:7041/asp-net/Data/";
+const images = 'https://localhost:7041/asp-net/Images/';
 
 export async function FetchUserData(username, password) {
   try {
-    var data = link + 'Validate?obj=' + username;
-    const response = await axios.get(data);
+    var url = link + 'Validate?obj=' + username;
+    const response = await axios.get(url);
     //alert(typeof(username)+' '+typeof(response.data.userName))
     if (response.status === 200) {
       if (username.trim() === response.data.userName && username !== "") {
@@ -46,3 +47,6 @@ export async function RegisterData(data) {
   }
 
 }
+
+export async function LoadImages() { return await axios.get( images+'LoadAll');}
+

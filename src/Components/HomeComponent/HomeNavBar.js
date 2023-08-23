@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../Styles/HomePage/HomeNavBar.css'
+import { Link } from 'react-router-dom'
 
 export default function HomeNavBar() {
   return (
@@ -16,7 +17,7 @@ export default function HomeNavBar() {
                 <a className="nav-link active" aria-current="page" href="/home">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/link1">Link</a>
+                <Link to={'/create'} className='nav-link' >Upload</Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link disabled" href="none" aria-disabled="true">Disabled</a>

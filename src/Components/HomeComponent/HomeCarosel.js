@@ -16,7 +16,7 @@ export default function HomeCarosel() {
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div className="carousel-inner">
-                    <div className="carousel-item active" style={{ boxShadow: {boxs} }}>
+                    <div className="carousel-item active" style={{ boxShadow: 'inset 0px -30px 124px 38px #000'}}>
                         <img src={logo1} className="d-block  img-carosel img-fluid" alt="..." />
                         <div className="carousel-caption text-start text-light-emphasis">
                             <h1>Digital Canvas.</h1>
@@ -24,7 +24,7 @@ export default function HomeCarosel() {
                             <p><a className="btn btn-lg btn-primary" href="/nothing">Sign up today</a></p>
                         </div>
                     </div>
-                    <div className="carousel-item" style={{ boxShadow: {boxs} }}>
+                    <div className="carousel-item" style={{ boxShadow: 'inset 0px -30px 124px 38px #000' }}>
                         <img src={logo2} className="d-block  img-carosel img-fluid" alt="..." />
                         <div className="carousel-caption text-light-emphasis">
                             <h1>Exploring Artistry.</h1>
@@ -33,7 +33,7 @@ export default function HomeCarosel() {
                         </div>
 
                     </div>
-                    <div className="carousel-item" style={{ boxShadow: {boxs} }}>
+                    <div className="carousel-item" style={{ boxShadow: 'inset 0px -30px 124px 38px #000' }}>
                         <img src={logo3} className="d-block  img-carosel img-fluid" alt="..." />
                         <div className="carousel-caption text-end text-light-emphasis">
                             <h1>Gallery Gems.</h1>
@@ -51,7 +51,6 @@ export default function HomeCarosel() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-           
         </div>
     )
 }

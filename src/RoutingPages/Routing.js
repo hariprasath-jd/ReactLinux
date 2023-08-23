@@ -10,9 +10,13 @@ export default function Routing() {
         <div style={{ height: '100svh'}} className='bg-blur'>
             <BrowserRouter>
                 <Routes>
+
+                    {/* Base Routing */}
                     <Route path='/' element={<LoginPage />} />
                     <Route path='/register' element={<LoginPage />} />
                     <Route path='/home' element={<Index />} />
+
+                    <Route path='/create' element={<Index />} />
                 </Routes>
             </BrowserRouter>
         </div>

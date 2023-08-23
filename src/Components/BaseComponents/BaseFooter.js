@@ -1,5 +1,5 @@
 import React from 'react'
-import './BaseContentLogin.css'
+import '../../Styles/LoginPage/BaseContentLogin.css'
 
 export default function BaseFooter() {
     return (
