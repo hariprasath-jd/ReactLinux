@@ -16,7 +16,7 @@ export default function Routing() {
                     <Route path='/register' element={<LoginPage />} />
                     <Route path='/home' element={<Index />} />
 
-                    <Route path='/create' element={<Index />} />
+                    <Route path='/upload' element={<Index />} />
                 </Routes>
             </BrowserRouter>
         </div>

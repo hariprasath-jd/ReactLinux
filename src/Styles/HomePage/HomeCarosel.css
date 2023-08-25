@@ -1,7 +1,7 @@
 
 .img-carosel {
     object-fit: cover;
-    max-height: 70svh;
+    max-height: 400px;
     width: 100%;
     position: relative;
     z-index: -2 ;

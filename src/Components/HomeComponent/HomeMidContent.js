@@ -1,61 +1,59 @@
-import React from 'react'
-import image1 from '../../Images/img-1.jpg'
-import image2 from '../../Images/img-2.jpg'
-import image3 from '../../Images/img-3.jpg'
-import image4 from '../../Images/img-4.jpg'
-import image5 from '../../Images/img-5.jpg'
-import image6 from '../../Images/img-6.jpg'
-import image7 from '../../Images/img-7.jpg'
-import image8 from '../../Images/img-8.jpg'
-import image9 from '../../Images/img-9.jpg'
-import image10 from '../../Images/img-11.jpg'
-import image11 from '../../Images/img-12.jpg'
-import image12 from '../../Images/img-13.jpg'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import '../../Styles/HomePage/HomeMidContent.css'
+import ImageModal from '../ImageComponents/ImageModal';
 
 export default function HomeMidContent() {
 
+    let [Data, setData] = useState([])
+    let [err] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
+
+    let [matter,setMatter] = useState({});
+
+    useEffect(() => {
+        axios.get('https://localhost:7041/asp-net/Images/LoadAll').then((i) => { setData(i.data); setIsLoading(false) }).catch((error) => { err = error.data; setIsLoading(false) })
+    }, []);
+
     return (
         <div>
-            <div className="image-box-card" >
-                <div className='box'>
-                    <img src={image1} alt="..." />
+            {isLoading ? (
+                <div className='main-div'>
+                    <h3>Loading...</h3>
+                    <div className="scene">
+                        <div className="cube-wrapper">
+                            <div className="cube">
+                                <div className="cube-faces">
+                                    <div className="cube-face shadow"></div>
+                                    <div className="cube-face bottom"></div>
+                                    <div className="cube-face top"></div>
+                                    <div className="cube-face left"></div>
+                                    <div className="cube-face right"></div>
+                                    <div className="cube-face back"></div>
+                                    <div className="cube-face front"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className='box'>
-                    <img src={image2} alt="..." />
+            ) : Data.length > 0 ? (
+                // Render when data is not empty
+                <div className='image-box-card' >
+                    {Data.map(((img, index) => (
+                        <div key={index} className='box'>
+                            <div key={index} className='file-name' data-bs-toggle="modal" data-bs-target="#staticBackdrop">{img.filename}
+                                <div className='btn btn-danger rounded-5 p-btn'><i class="fa-regular fa-floppy-disk" style={{ color: '#fff', fontSize: '28px' }}></i></div>
+                            </div>
+                            <img src={`data:image/jpeg;base64,${img.photos}`} alt={img.filename}  ></img>
+                        </div>
+                    )))}
                 </div>
-                <div className='box'>
-                    <img src={image3} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image4} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image5} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image6} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image7} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image8} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image9} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image10} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image11} alt="..." />
-                </div>
-                <div className='box'>
-                    <img src={image12} alt="..." />
-                </div>
-            </div>
-            
+            ) : (
+                // Render when data is empty
+                <p>No data available.</p>
+            )}
+            <div>{err}</div>
+            <ImageModal image={matter} />
 
         </div>
     )

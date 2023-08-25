@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const link = "https://localhost:7041/asp-net/Data/";
-const images = 'https://localhost:7041/asp-net/Images/';
+//const images = 'https://localhost:7041/asp-net/Images/';
 
 export async function FetchUserData(username, password) {
   try {
@@ -48,5 +48,30 @@ export async function RegisterData(data) {
 
 }
 
-export async function LoadImages() { return await axios.get( images+'LoadAll');}
+export async function LoadImages() {
+  const data = await axios.get('your-api-endpoint', {
+    responseType: 'arraybuffer', // Important: Set the response type to 'arraybuffer'
+  })
+    .then(response => {
+      // Process the response
+      const blob = new Blob([response.data], { type: 'application/octet-stream' });
+      const url = window.URL.createObjectURL(blob);
+
+      // Create a link element to allow downloading or viewing the file
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'filename.extension'); // Set the desired file name
+      document.body.appendChild(link);
+      link.click();
+
+      // Clean up after the link is clicked
+      link.parentNode.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+      console.error('Error fetching file:', error);
+    });
+    return data;
+
+}
 

@@ -33,7 +33,7 @@ export default function BaseNavBar() {
         <div>
             <Navbar expand="lg" className="f-opcatity">
 
-                <Navbar.Brand href="#home" className='ms-3'>React-DotNet</Navbar.Brand>
+                <Navbar.Brand href="#home" className='ms-3'>Studios®</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto"></Nav>

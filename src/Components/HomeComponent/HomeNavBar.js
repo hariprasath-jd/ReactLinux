@@ -10,23 +10,32 @@ export default function HomeNavBar() {
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <a className="navbar-brand" href="/home">Navbar</a>
+          <a className="navbar-brand" href="/home">Studios®</a>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/home">Home</a>
+                <Link to={'/home'} className='nav-link active' >Home</Link>
               </li>
               <li className="nav-item">
-                <Link to={'/create'} className='nav-link' >Upload</Link>
+                <Link to={'/upload'} className='nav-link' >My Upload's</Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="none" aria-disabled="true">Disabled</a>
-              </li>
+
             </ul>
             <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button className="btn btn-outline-success" type="submit">Search</button>
+              <div class="flex-shrink-0 dropstart drop-end">
+                <a href="#" class="d-block link-body-emphasis text-decoration-none " data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle" />
+                </a>
+                <ul class="dropdown-menu  text-small shadow dropdown-menu-start" >
+                  <li><a class="dropdown-item" href="#">New project...</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+              </div>
             </form>
+            <button className='btn btn-danger ms-4' >Logout</button>
           </div>
         </div>
       </nav>
