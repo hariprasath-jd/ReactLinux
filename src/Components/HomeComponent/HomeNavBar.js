@@ -1,8 +1,14 @@
 import React from 'react'
 import '../../Styles/HomePage/HomeNavBar.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function HomeNavBar() {
+  
+  const nav = useNavigate();
+  const Logout = () => {
+    sessionStorage.clear();
+    nav('/')
+  }
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg bk-blur">
@@ -17,7 +23,7 @@ export default function HomeNavBar() {
                 <Link to={'/home'} className='nav-link active' >Home</Link>
               </li>
               <li className="nav-item">
-                <Link to={'/upload'} className='nav-link' >My Upload's</Link>
+                <Link to={'/myupload'} className='nav-link' >My Upload's</Link>
               </li>
 
             </ul>
@@ -27,15 +33,15 @@ export default function HomeNavBar() {
                   <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle" />
                 </a>
                 <ul class="dropdown-menu  text-small shadow dropdown-menu-start" >
-                  <li><a class="dropdown-item" href="#">New project...</a></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">{sessionStorage.getItem('username')}</a></li>
+                  <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Switch Account</a></li>
                   <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Sign out</a></li>
+                  <li><p className='dropdown-item my-0' onClick={Logout}>Sign Out</p></li>
                 </ul>
               </div>
             </form>
-            <button className='btn btn-danger ms-4' >Logout</button>
+           
           </div>
         </div>
       </nav>

@@ -84,6 +84,7 @@
     display: grid;
     place-items: center;
     position: relative;
+    justify-content: center;
 }
 
 .scene {

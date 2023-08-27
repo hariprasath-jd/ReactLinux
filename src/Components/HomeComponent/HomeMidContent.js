@@ -9,8 +9,6 @@ export default function HomeMidContent() {
     let [err] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
-    let [matter,setMatter] = useState({});
-
     useEffect(() => {
         axios.get('https://localhost:7041/asp-net/Images/LoadAll').then((i) => { setData(i.data); setIsLoading(false) }).catch((error) => { err = error.data; setIsLoading(false) })
     }, []);
@@ -19,7 +17,6 @@ export default function HomeMidContent() {
         <div>
             {isLoading ? (
                 <div className='main-div'>
-                    <h3>Loading...</h3>
                     <div className="scene">
                         <div className="cube-wrapper">
                             <div className="cube">
@@ -39,21 +36,20 @@ export default function HomeMidContent() {
             ) : Data.length > 0 ? (
                 // Render when data is not empty
                 <div className='image-box-card' >
-                    {Data.map(((img, index) => (
+                    {Data.map((img, index) => (
                         <div key={index} className='box'>
                             <div key={index} className='file-name' data-bs-toggle="modal" data-bs-target="#staticBackdrop">{img.filename}
                                 <div className='btn btn-danger rounded-5 p-btn'><i class="fa-regular fa-floppy-disk" style={{ color: '#fff', fontSize: '28px' }}></i></div>
                             </div>
                             <img src={`data:image/jpeg;base64,${img.photos}`} alt={img.filename}  ></img>
                         </div>
-                    )))}
+                    ))}
                 </div>
             ) : (
                 // Render when data is empty
                 <p>No data available.</p>
             )}
             <div>{err}</div>
-            <ImageModal image={matter} />
 
         </div>
     )

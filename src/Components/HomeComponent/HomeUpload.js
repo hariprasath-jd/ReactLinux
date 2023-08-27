@@ -20,6 +20,7 @@ export default function HomeUpload() {
     const filename = file.name.filename > 12 ? `${file.name.substring(0, 13)}... .${file.name.sllit('.')[1]}` : file.name;
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('id', sessionStorage.getItem('id'));
     setFiles(prevState => [...prevState, { name: filename, loading: 0 }]);
     setShowProgress(true)
     axios.post('https://localhost:7041/asp-net/Images/Create', formData, {
@@ -52,7 +53,7 @@ export default function HomeUpload() {
             <p>Browse files to upload</p>
           </form>
         </div>
-        <div className='col-3 mt-4'>
+        <div className='col-3 mt-4 border-start'>
           {showProgress && (
             <section className='loading-area'>
               {files.map((file, index) => (

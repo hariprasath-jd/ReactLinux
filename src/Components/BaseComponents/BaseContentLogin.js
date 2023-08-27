@@ -16,6 +16,7 @@ export default function BaseContentLogin() {
         //alert(test + '  in state')
         if (test) {
             //alert('berfore nav')
+            sessionStorage.setItem('username',username);
             nav('/home')
         }
         else {

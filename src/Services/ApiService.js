@@ -13,6 +13,7 @@ export async function FetchUserData(username, password) {
         //alert('in name validation')
         if (password === response.data.password) {
           //alert('in pass validation')
+          sessionStorage.setItem('id',response.data.id);
           return true;
         }
         else
