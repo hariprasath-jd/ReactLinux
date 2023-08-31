@@ -57,7 +57,7 @@ export default function HomeUploadSideBar() {
                         <div className="collapse" id="account-collapse">
                             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><Link to={'/profile'} className="link-body-emphasis d-inline-flex text-decoration-none rounded" >Profile</Link></li>
-                                <li><Link to={'/editprofile'} className="link-body-emphasis d-inline-flex text-decoration-none rounded" >Edit Profile</Link></li>
+                                <li><Link to={'/achivements'} className="link-body-emphasis d-inline-flex text-decoration-none rounded" >Achivements</Link></li>
                                 <li><a href="#" className="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li> 
                             </ul>
                         </div>

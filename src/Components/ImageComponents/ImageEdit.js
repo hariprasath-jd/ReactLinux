@@ -68,7 +68,7 @@ export default function ImageEdit() {
                     <div className='row px-4 pb-4' style={{ width: '100%' }}>
                         <div className='col grid text-center'>
                             <div>
-                                <img src={`data:image/jpeg;base64,${resource.photos}`} style={{ maxHeight: '400px', objectFit: 'cover' }} alt={resource.filename} />
+                                <img src={`data:image/jpeg;base64,${resource.photos}`} style={{ maxHeight:'400px', objectFit: 'cover' }} alt={resource.filename} />
                             </div>
                         </div>
                         <div className='col-5'>

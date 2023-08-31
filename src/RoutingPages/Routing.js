@@ -19,6 +19,8 @@ export default function Routing() {
                     <Route path='/upload' element={<Index />} />
                     <Route path='/myupload' element={<Index />} />
                     <Route path='/edit' element={<Index />} />
+                    <Route path='/show' element={<Index />}/>
+                    <Route path='/profile' element={<Index />}/>
                 </Routes>
             </BrowserRouter>
         </div>

@@ -3,7 +3,7 @@ import '../../Styles/HomePage/HomeNavBar.css'
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function HomeNavBar() {
-  
+
   const nav = useNavigate();
   const Logout = () => {
     sessionStorage.clear();
@@ -20,28 +20,30 @@ export default function HomeNavBar() {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link to={'/home'} className='nav-link active' >Home</Link>
+                <Link to={'/home'} className='nav-link active' ><i class="fa-solid fa-house"></i>  Home</Link>
               </li>
               <li className="nav-item">
-                <Link to={'/myupload'} className='nav-link' >My Upload's</Link>
+                <Link to={'/profile'} className='nav-link' ><i class="fa-solid fa-user"></i> Profile</Link>
               </li>
-
+              <li className="nav-item">
+                <Link to={'/myupload'} className='nav-link' ><i class="fa-solid fa-file-arrow-up"></i> My Upload's</Link>
+              </li>
             </ul>
             <form className="d-flex" role="search">
-              <div class="flex-shrink-0 dropstart drop-end">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none " data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle" />
+              <div className="flex-shrink-0 dropstart drop-end">
+                <a href="#" className="d-block link-body-emphasis text-decoration-none " data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle" />
                 </a>
-                <ul class="dropdown-menu  text-small shadow dropdown-menu-start" >
-                  <li><a class="dropdown-item" href="#">{sessionStorage.getItem('username')}</a></li>
-                  <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Switch Account</a></li>
-                  <li><hr class="dropdown-divider" /></li>
+                <ul className="dropdown-menu  text-small shadow dropdown-menu-start" >
+                  <li><a className="dropdown-item" href="#">{sessionStorage.getItem('username')}</a></li>
+                  <li><a className="dropdown-item" href="#">Edit Profile</a></li>
+                  <li><a className="dropdown-item" href="#">Switch Account</a></li>
+                  <li><hr className="dropdown-divider" /></li>
                   <li><p className='dropdown-item my-0' onClick={Logout}>Sign Out</p></li>
                 </ul>
               </div>
             </form>
-           
+
           </div>
         </div>
       </nav>

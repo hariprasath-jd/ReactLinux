@@ -6,6 +6,8 @@ import { useLocation } from 'react-router-dom';
 import HomeUploadSideBar from '../Components/HomeComponent/HomeUploadSideBar';
 import HomeUserSpecificContent from '../Components/HomeComponent/HomeUserSpecificContent';
 import ImageEdit from '../Components/ImageComponents/ImageEdit';
+import ImageShow from '../Components/ImageComponents/ImageShow';
+import UserProfile from '../Components/UserComponents/UserProfile';
 
 export default function HomeLayout() {
 
@@ -48,6 +50,23 @@ export default function HomeLayout() {
         </div>
       )
     }
+
+    if(val === '/show'){
+      return (<div>
+        <div><ImageShow /></div>
+      </div>)
+    }
+
+    if(val === '/profile'){
+      return (
+        <div className='row'>
+          <div className='col-2'>
+          <HomeUploadSideBar />
+          </div>
+          <div className='col mt-5 pt-3'><UserProfile /></div>
+        </div>
+      )
+    }
   }
 
   const checkSession = () => {
@@ -59,7 +78,7 @@ export default function HomeLayout() {
         </div>);
     }
     else {
-      return <div>No Session</div>;
+      return <div>No Session</div>
     }
   }
 

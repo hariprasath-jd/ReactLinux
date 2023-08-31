@@ -64,7 +64,7 @@ export default function HomeUserSpecificContent() {
                 </div>
             ) : Data.length > 0 ? (
                 // Render when data is not empty
-                <div className='mx-5 mt-5 pt-2  border rounded-3  overflow-hidden'>
+                <div className='mx-5 mt-5 pt-2  border rounded-3  overflow-hidden overflow-y-scroll' style={{maxHeight:'700px'}}>
                     <table class="table table-striped table-dark">
                         <thead>
                             <tr>
@@ -79,7 +79,7 @@ export default function HomeUserSpecificContent() {
                                 <tr className=''>
                                     <th scope='row'>{index + 1}</th>
                                     <td className='col-5 mx-auto'>{data.filename}</td>
-                                    <td className='col-2'><img src={`data:image/jpeg;base64,${data.photos}`} style={{ maxHeight: '250px' }} width={'200px'} alt={data.filename}  ></img></td>
+                                    <td className='col-2'><img src={`data:image/jpeg;base64,${data.photos}`} style={{ maxHeight: '250px',aspectRatio:'auto',objectFit:'contain' }} width={'200px'} alt={data.filename}  ></img></td>
                                     <td className='col-2'>
                                         <button className='btn btn-warning me-3' onClick={() => { Editbtn(data.id) }}>Edit</button>
                                         <button className='btn btn-danger' onClick={() => { deleteBtn(data.id, data.filename) }} data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
